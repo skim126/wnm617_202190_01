@@ -1,8 +1,8 @@
-# Your Name
+# Seungwoo Kim
 
 ## Important Links
 
-- Add Some links https://somelink.com
+- https://somelink.com
 - https://somelink.com
 - https://somelink.com
 
