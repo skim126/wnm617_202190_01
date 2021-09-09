@@ -2,7 +2,7 @@
 
 ## Important Links
 
-- https://somelink.com
+- https://seungwookim.com
 - https://somelink.com
 - https://somelink.com
 
