@@ -3,7 +3,7 @@
 ## Important Links
 
 - https://seungwookim.com
-- https://somelink.com
+- https://seungwookim.com/aau/wnm617/kim.seungwoo/
 - https://somelink.com
 
 ## Perhaps Some Notes
