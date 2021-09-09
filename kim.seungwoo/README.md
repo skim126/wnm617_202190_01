@@ -7,4 +7,9 @@
 
 ## Perhaps Some Notes
 
-- Take note of how markdown works
+- Take note
+
+### Git commands
+- git add .
+- git commit -m "message"
+- git push origin main
