@@ -9,4 +9,4 @@
 ## Perhaps Some Notes
 
 - Take note of how markdown works
-- Dont forget to fork first
+- Dont forget to fork first.
