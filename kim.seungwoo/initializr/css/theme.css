@@ -1,3 +1,32 @@
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 16px;
+    font-weight: normal;
+
+}
+
+
 .header-container {
     width: 63px;
     background: orange;
@@ -44,6 +73,13 @@ a {
     position: relative;
     padding-left: 40px;
     padding-right: 40px;
+}
+.module1 {
+    background-color: orange;
+    height: 600px;
+}
+.module1 header {
+    padding: 12px;
 }
 
 .info{
