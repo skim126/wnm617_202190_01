@@ -10,4 +10,3 @@
 
 - Take note of how markdown works
 - Dont forget to fork first
-- Test commit

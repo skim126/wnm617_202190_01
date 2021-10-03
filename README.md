@@ -9,3 +9,4 @@ This course will require you to push content changes at least once a week. Your 
 
 - Create your named folder. lastname.firstname
 - Add a README.md to your folder with your information and links
+- Test
