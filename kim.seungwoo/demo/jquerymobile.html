@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>PiPi</title>
 
 	<base href="/aau/wnm617_202190_01/kim.seungwoo/">
 
@@ -14,23 +14,46 @@
 
 	<script src="js/app.js"></script>
 
-	<script src="lib/js/jquery.mobile-1.4.5.min"></script>
+	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 
 </head>
 <body>
 
 	<section data-role="page" id="page1">
-		<header date-role="header"> <h1>page 1</h1></header>
+		<header date-role="header"><h1>page 1</h1></header>
 		<div date-role="main">
-			This is page 1 body This is also test123
-			This is test on saturdaynight123
-			<br>
-			This is seungwoo 
+			This is page 1 body
+			<p><a href="#page2">Page 2</a></p>
+			<p><a href="#page3">Page 3</a></p>
 		</div>
 		<footer date-role="footer">
 			page 1
 		</footer>
 	</section>
+
+	<section data-role="page" id="page2">
+		<header date-role="header"><h1>page 2</h1></header>
+		<div date-role="main">
+			This is page 2 body
+			<p><a href="#page1">Page 1</a></p>
+			<p><a href="#page3">Page 3</a></p>
+		</div>
+		<footer date-role="footer">
+			page 2
+		</footer>
+	</section>	
+
+	<section data-role="page" id="page3">
+		<header date-role="header">
+			<a href="#" data-rel="back">Back</a>
+			<h1>page 3</h1>
+		</header>
+		<div date-role="main">
+			This is page 3 body
+			<p><a href="#page1">Page 1</a></p>
+			<p><a href="#page2">Page 2</a></p>
+		</div>
+	</section>	
 	
 </body>
 </html>

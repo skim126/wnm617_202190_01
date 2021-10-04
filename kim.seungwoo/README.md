@@ -2,8 +2,8 @@
 
 ## Important Links
 
-- https://seungwookim.com
-- https://seungwookim.com/aau/wnm617/kim.seungwoo/
+- https://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/
+- https://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/demo/jquerymobile.html
 
 ## Perhaps Some Notes
 
