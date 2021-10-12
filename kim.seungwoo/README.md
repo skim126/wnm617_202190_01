@@ -2,12 +2,19 @@
 
 ## Important Links
 
-- https://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/
-- https://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/demo/jquerymobile.html
+- http://seungwookim.com
+- http://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo
 
-## Perhaps Some Notes
 
-- Take note
+## Demo Code
+
+- http://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/demo
+- http://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/demo/jquerymobile.html
+
+
+## Side Assigments
+- http://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/initializr/
+
 
 ### Git commands
 - git add .

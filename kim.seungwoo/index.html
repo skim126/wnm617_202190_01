@@ -13,6 +13,7 @@
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/app.js"></script>
+	<script src="js/signin.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 
@@ -23,50 +24,168 @@
 		<div data-role="main" class="display-flex flex-vertical">
 			<div class="flex-stretch"></div>
 			<form data-ajax="false" class="form" id="signin-form" style="padding: 10px;">
+				<div class="centered container-copy">
+					<h3 class="signin-heading">Welcome to PiPi</h3>
+					<p>Track free restrooms</p>
+				</div>
 				<div class="form-control">
-					<h5>Email</h5>
+					<h6>Email</h6>
 					<input class="form-input" type="text" id="signin-username" data-role="none" placeholder="Username">
 				</div>
 				<div class="form-control">
-					<h5>Password</h5>
+					<h6>Password</h6>
 					<input class="form-input" type="password" id="signin-password" data-role="none" placeholder="Password">
 				</div>
 				<div class="form-control">
-					<a href="#page-home" class="form-button">Sign In</a>
+					<!-- <a href="#page-home" class="form-button">Sign In</a> -->
+					<input type="submit" value="Sign In" class="form-button">
+				</div>
+				<div class="form-control small centered">
+					Need a new account?<a href="#page-signup" class="">Sign Up</a>
 				</div>
 			</form>
+			<div class="flex-stretch"></div>
 		</div>
 	</section>
 
+	<section data-role="page" id="page-signup">
+		<div data-role="main" class="display-flex flex-vertical">
+			<div class="flex-stretch"></div>
+			<form data-ajax="false" class="form" id="signup-form" style="padding: 10px;">
+				<div class="centered container-copy">
+					<h3 class="signup-heading">Create a free account</h3>
+					<p>Track free restrooms</p>
+				</div>
+				<div class="form-control">
+					<label for="signup-email" class="form-label"></label>
+					<h6>Email Address</h6>
+					<input class="form-input" type="text" id="signup-email" data-role="none" placeholder="Email">
+				</div>
+				<div class="form-control">
+					<label for="signup-password" class="form-label"></label>
+					<h6>New Password</h6>
+					<input class="form-input" type="password" id="signup-password" data-role="none" placeholder="Password">
+				</div>
+				<div class="form-control">
+					<label for="signup-password2" class="form-label"></label>
+					<h6>Confirm Password</h6>
+					<input class="form-input" type="password" id="signup-password2" data-role="none" placeholder="Confirm">
+				</div>				
+				<div class="form-control">
+					<!-- <a href="#page-home" class="form-button">Sign In</a> -->
+					<input type="submit" value="Sign Up" class="form-button">
+				</div>
+				<div class="form-control small centered">
+					Already have an account?<a href="#page-signin" class="">Sign In</a>
+				</div>
+			</form>
+			<div class="flex-stretch"></div>
+		</div>
+	</section>	
+
 	<section data-role="page" id="page-home">
 		<div data-role="main">
-			MAP!
+			<h4 class="page-title">Home</h4>
+			<div class="map">
+				
+			</div>
+
+			<div class="floater bottom">
+				<div class="box-closest-info">
+				Closest Restroom<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				</div>
+			</div>
 		</div>
+
 		<footer data-role="footer">
 			<ul>
 				<li><a href="#page-home">Home</a></li>
 				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-add">Add</a></li>
+				<li><a href="#page-addlocation">Add</a></li>
 				<li><a href="#page-user-profile">Profile</a></li>
 			</ul>
 		</footer>		
 	</section>
 
 	<section data-role="page" id="page-list">
-		<div data-role="main">
+		<div data-role="main" class="overscroll">
+			<h4 class="page-title">List</h4>
+
 			<ul>
-				<!-- li*10>a[href="page-animal-profile"]{Animal $} -->
-				<li><a href="#page-animal-profile">Animal 1</a></li>
-				<li><a href="#page-animal-profile">Animal 2</a></li>
-				<li><a href="#page-animal-profile">Animal 3</a></li>
-				<li><a href="#page-animal-profile">Animal 4</a></li>
-				<li><a href="#page-animal-profile">Animal 5</a></li>
-				<li><a href="#page-animal-profile">Animal 6</a></li>
-				<li><a href="#page-animal-profile">Animal 7</a></li>
-				<li><a href="#page-animal-profile">Animal 8</a></li>
-				<li><a href="#page-animal-profile">Animal 9</a></li>
-				<li><a href="#page-animal-profile">Animal 10</a></li>
+				<!-- li*50>a[href="page-animal-profile"]{Animal $} -->
+				<li><a href="page-animal-profile">Animal 1</a></li>
+				<li><a href="page-animal-profile">Animal 2</a></li>
+				<li><a href="page-animal-profile">Animal 3</a></li>
+				<li><a href="page-animal-profile">Animal 4</a></li>
+				<li><a href="page-animal-profile">Animal 5</a></li>
+				<li><a href="page-animal-profile">Animal 6</a></li>
+				<li><a href="page-animal-profile">Animal 7</a></li>
+				<li><a href="page-animal-profile">Animal 8</a></li>
+				<li><a href="page-animal-profile">Animal 9</a></li>
+				<li><a href="page-animal-profile">Animal 10</a></li>
+				<li><a href="page-animal-profile">Animal 11</a></li>
+				<li><a href="page-animal-profile">Animal 12</a></li>
+				<li><a href="page-animal-profile">Animal 13</a></li>
+				<li><a href="page-animal-profile">Animal 14</a></li>
+				<li><a href="page-animal-profile">Animal 15</a></li>
 			</ul>
+		</div>
+		<footer data-role="footer">
+			<ul>
+				<li><a href="#page-home">Home</a></li>
+				<li><a href="#page-list">List</a></li>
+				<li><a href="#page-addlocation">Add</a></li>
+				<li><a href="#page-user-profile">Profile</a></li>
+			</ul>
+		</footer>		
+	</section>
+
+	<section data-role="page" id="page-addlocation">
+		<div data-role="main"  class="overscroll display-flex flex-vertical">
+			<h4 class="page-title">Add Location</h4>
+
+			<form data-ajax="false" class="form" id="addlocation-form" style="padding: 10px;">
+
+				<div class="form-control">
+					<label for="add-storename" class="form-label"></label>
+					<h6>Store Name</h6>
+					<input class="form-input" type="text" id="add-storename" data-role="none" placeholder="">
+				</div>
+
+				<div class="form-control">
+					<label for="add-address" class="form-label"></label>
+					<h6>Address</h6>
+					<input class="form-input" type="text" id="add-address" data-role="none" placeholder="">
+				</div>
+
+				<div class="form-control">
+					<label for="add-password" class="form-label"></label>
+					<h6>Password</h6>
+					<input class="form-input" type="text" id="add-password" data-role="none" placeholder="">
+				</div>
+
+				<div class="form-control">
+					<label for="add-detailinformation" class="form-label"></label>
+					<h6>Detail Information</h6>
+					<input class="form-input" type="text" id="add-detailinformation" data-role="none" placeholder="">
+				</div>
+
+				<div class="form-control">
+					<label for="add-rating" class="form-label"></label>
+					<h6>Rating</h6>
+					<input class="form-input" type="" id="add-rating" data-role="none" placeholder="">
+				</div>
+
+				<div class="form-control">
+						<!-- <a href="#page-home" class="form-button">Sign In</a> -->
+					<input type="submit" value="Save" class="form-button">
+				</div>
+			</form>
 		</div>
 		<footer data-role="footer">
 			<ul>
@@ -76,23 +195,51 @@
 				<li><a href="#page-user-profile">Profile</a></li>
 			</ul>
 		</footer>		
-	</section>	
+	</section>
 
 	<section data-role="page" id="page-user-profile">
-		<div data-role="main">
-			USER!
+		<div data-role="main"  class="overscroll display-flex flex-vertical">
+			<h4 class="page-title">Profile</h4>
+
+			<form data-ajax="false" class="form" id="addlocation-form" style="padding: 10px;">
+
+				<div class="form-control">
+					<label for="add-profile-image" class="form-label"></label>
+					<h6>Image</h6>
+					<input class="form-input" type="text" id="add-profile-image" data-role="none" placeholder="">
+				</div>
+
+				<div class="form-control">
+					<label for="add-profile-name" class="form-label"></label>
+					<h6>Name</h6>
+					<input class="form-input" type="text" id="add-profile-name" data-role="none" placeholder="">
+				</div>
+
+				<div class="form-control">
+					<label for="add-profile-email" class="form-label"></label>
+					<h6>Email</h6>
+					<input class="form-input" type="text" id="add-profile-email" data-role="none" placeholder="">
+				</div>
+		
+				<div>
+					<button class="form-button js-logout">
+						Log Out
+					</button>
+				</div>
+			</form>
+			<div class="flex-stretch"></div>
 		</div>
 		<footer data-role="footer">
 			<ul>
 				<li><a href="#page-home">Home</a></li>
 				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-add">Add</a></li>
+				<li><a href="#page-addlocation">Add</a></li>
 				<li><a href="#page-user-profile">Profile</a></li>
 			</ul>
 		</footer>		
 	</section>	
 
-	<section data-role="page" id="page-animal-profile">
+	<section data-role="page" id="page-restroom-profile">
 		<header data-role="header">
 			<h1>Restroom</h1>
 			<ul>
