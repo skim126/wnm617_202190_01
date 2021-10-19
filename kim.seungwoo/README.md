@@ -11,6 +11,8 @@
 - http://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/demo
 - http://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/demo/jquerymobile.html
 
+## Side Assigments
+- http://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo/initializr/
 
 
 ### Git commands
