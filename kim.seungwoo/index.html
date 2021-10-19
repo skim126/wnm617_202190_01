@@ -23,7 +23,7 @@
 	<section data-role="page" id="page-signin">
 		<div data-role="main" class="display-flex flex-vertical">
 			<div class="flex-stretch"></div>
-			<form data-ajax="false" class="form" id="signin-form" style="padding: 10px;">
+			<form data-ajax="false" class="form signin-form" id="signin-form" style="padding: 10px;">
 				<div class="centered container-copy">
 					<h3 class="signin-heading">Welcome to PiPi</h3>
 					<p>Track free restrooms</p>
@@ -38,7 +38,7 @@
 				</div>
 				<div class="form-control">
 					<!-- <a href="#page-home" class="form-button">Sign In</a> -->
-					<input type="submit" value="Sign In" class="form-button">
+					<input type="submit" value="Sign In" class="form-button" data-role="none">
 				</div>
 				<div class="form-control small centered">
 					Need a new account?<a href="#page-signup" class="">Sign Up</a>
@@ -51,7 +51,7 @@
 	<section data-role="page" id="page-signup">
 		<div data-role="main" class="display-flex flex-vertical">
 			<div class="flex-stretch"></div>
-			<form data-ajax="false" class="form" id="signup-form" style="padding: 10px;">
+			<form data-ajax="false" class="form signin-form" id="signup-form" style="padding: 10px;">
 				<div class="centered container-copy">
 					<h3 class="signup-heading">Create a free account</h3>
 					<p>Track free restrooms</p>
@@ -73,7 +73,7 @@
 				</div>				
 				<div class="form-control">
 					<!-- <a href="#page-home" class="form-button">Sign In</a> -->
-					<input type="submit" value="Sign Up" class="form-button">
+					<input type="submit" value="Sign Up" class="form-button" data-role="none">
 				</div>
 				<div class="form-control small centered">
 					Already have an account?<a href="#page-signin" class="">Sign In</a>
@@ -84,68 +84,74 @@
 	</section>	
 
 	<section data-role="page" id="page-home">
-		<div data-role="main">
+		<div class="header">
 			<h4 class="page-title">Home</h4>
+		</div>
+		<div data-role="main">
 			<div class="map">
-				
-			</div>
-
-			<div class="floater bottom">
-				<div class="box-closest-info">
-				Closest Restroom<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+				<div class="flex-stretch search-container">	
+					<form action="">
+						<input class="search-bar" type="text" name="search" placeholder="Search" data-role="none">
+					</form>
 				</div>
+
+				<div class="floater bottom right">
+						<a href="#page-location-choose-restroom" class="btn-circle">&plus;</a>
+				</div>
+
+<!-- 				<div class="modal" id="recent-add-modal">
+					<div class="modal-back" data-deactivate="#recent-add-modal"></div>
+					<div class="modal-drawer left">
+						<div class="modal-head display-flex">
+							<div class="flex-stretch">Drawer</div>
+							<div class="flex-none">
+								<img class="icon" src="img/icons/close.png" data-deactivate="#recent-add-modal">
+							</div>
+						</div>
+						<div class="modal-body">
+							Body
+						</div>
+					</div>
+				</div>	 -->
+
+			</div>
+			<div class="floater" style="top:35%;left:35%;">
+				<a href="#" data-activate="#recent-add-modal"><img src="img/icons/marker.png" class="icon" style="width:25px;height:25px;"></a>
 			</div>
 		</div>
 
-		<footer data-role="footer">
-			<ul>
-				<li><a href="#page-home">Home</a></li>
-				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-addlocation">Add</a></li>
-				<li><a href="#page-user-profile">Profile</a></li>
-			</ul>
-		</footer>		
+		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
 
 	<section data-role="page" id="page-list">
-		<div data-role="main" class="overscroll">
+		<div class="header">
 			<h4 class="page-title">List</h4>
-
-			<ul>
-				<!-- li*50>a[href="page-animal-profile"]{Animal $} -->
-				<li><a href="page-animal-profile">Animal 1</a></li>
-				<li><a href="page-animal-profile">Animal 2</a></li>
-				<li><a href="page-animal-profile">Animal 3</a></li>
-				<li><a href="page-animal-profile">Animal 4</a></li>
-				<li><a href="page-animal-profile">Animal 5</a></li>
-				<li><a href="page-animal-profile">Animal 6</a></li>
-				<li><a href="page-animal-profile">Animal 7</a></li>
-				<li><a href="page-animal-profile">Animal 8</a></li>
-				<li><a href="page-animal-profile">Animal 9</a></li>
-				<li><a href="page-animal-profile">Animal 10</a></li>
-				<li><a href="page-animal-profile">Animal 11</a></li>
-				<li><a href="page-animal-profile">Animal 12</a></li>
-				<li><a href="page-animal-profile">Animal 13</a></li>
-				<li><a href="page-animal-profile">Animal 14</a></li>
-				<li><a href="page-animal-profile">Animal 15</a></li>
-			</ul>
+		</div>		
+		<div data-role="main">
+			<div class="overscroll floater fill-parent">
+					<ul class="restroomlist">
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
+					</ul>				
+			</div>
+				<div class="floater bottom right">
+						<a href="#page-restroom-add" class="btn-circle">&plus;</a>
+				</div>	
 		</div>
-		<footer data-role="footer">
-			<ul>
-				<li><a href="#page-home">Home</a></li>
-				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-addlocation">Add</a></li>
-				<li><a href="#page-user-profile">Profile</a></li>
-			</ul>
-		</footer>		
+		<footer data-role="footer" data-template="#footer-template"></footer>
+	
 	</section>
 
-	<section data-role="page" id="page-addlocation">
+	<!-- <section data-role="page" id="page-addlocation">
 		<div data-role="main"  class="overscroll display-flex flex-vertical">
 			<h4 class="page-title">Add Location</h4>
 
@@ -182,8 +188,7 @@
 				</div>
 
 				<div class="form-control">
-						<!-- <a href="#page-home" class="form-button">Sign In</a> -->
-					<input type="submit" value="Save" class="form-button">
+					<input type="submit" value="Save" class="form-button" data-role="none">
 				</div>
 			</form>
 		</div>
@@ -191,34 +196,37 @@
 			<ul>
 				<li><a href="#page-home">Home</a></li>
 				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-add">Add</a></li>
 				<li><a href="#page-user-profile">Profile</a></li>
 			</ul>
 		</footer>		
-	</section>
+	</section> -->
 
 	<section data-role="page" id="page-user-profile">
-		<div data-role="main"  class="overscroll display-flex flex-vertical">
+		<div class="header">
 			<h4 class="page-title">Profile</h4>
+		</div>		
+		<div data-role="main"  class="overscroll display-flex flex-vertical padding-md">
 
-			<form data-ajax="false" class="form" id="addlocation-form" style="padding: 10px;">
+			<form data-ajax="false" class="form" id="" style="padding: 10px;">
 
 				<div class="form-control">
-					<label for="add-profile-image" class="form-label"></label>
-					<h6>Image</h6>
+					<label for="add-profile-image" class="form-label">Image</label>
 					<input class="form-input" type="text" id="add-profile-image" data-role="none" placeholder="">
 				</div>
 
 				<div class="form-control">
-					<label for="add-profile-name" class="form-label"></label>
-					<h6>Name</h6>
-					<input class="form-input" type="text" id="add-profile-name" data-role="none" placeholder="">
+					<label for="add-profile-firstname" class="form-label">First Name</label>
+					<input class="form-input" type="text" id="add-profile-name" data-role="none" placeholder="Seungwoo">
 				</div>
 
 				<div class="form-control">
-					<label for="add-profile-email" class="form-label"></label>
-					<h6>Email</h6>
-					<input class="form-input" type="text" id="add-profile-email" data-role="none" placeholder="">
+					<label for="add-profile-lastname" class="form-label">Last Name</label>
+					<input class="form-input" type="text" id="add-profile-name" data-role="none" placeholder="Kim">
+				</div>
+
+				<div class="form-control">
+					<label for="add-profile-email" class="form-label">Email</label>
+					<input class="form-input" type="text" id="add-profile-email" data-role="none" placeholder="kim.seungwoo126@gmail.com">
 				</div>
 		
 				<div>
@@ -229,15 +237,10 @@
 			</form>
 			<div class="flex-stretch"></div>
 		</div>
-		<footer data-role="footer">
-			<ul>
-				<li><a href="#page-home">Home</a></li>
-				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-addlocation">Add</a></li>
-				<li><a href="#page-user-profile">Profile</a></li>
-			</ul>
-		</footer>		
+		<footer data-role="footer" data-template="#footer-template"></footer>		
 	</section>	
+
+	<!-- Restroom Page -->
 
 	<section data-role="page" id="page-restroom-profile">
 		<header data-role="header">
@@ -246,10 +249,131 @@
 				<li><a href="#" data-rel="back">Back</a></li>
 			</ul>
 		</header>	
+		<div class="padding-md display-flex flex-vertical" data-role="main">
+			<div>
+				<img src="https://via.placeholder.com/350x350text=Restroom" alt="">
+			</div>
+			<div class="form-control">
+				<lable for="restroom-add-name" class="form-label">Name</lable>
+				<input type="text" class="form-input" data-role="none" placeholder="Starbucks Sutter&Powell">
+			</div>
+
+			<div class="form-control">
+				<lable for="restroom-add-password" class="form-label">Password</lable>
+				<input type="text" class="form-input" data-role="none" placeholder="12345">
+			</div>
+
+			<div class="form-control">
+				<lable for="restroom-add-info" class="form-label">Detail Information</lable>
+				<input type="text" class="form-input" data-role="none" placeholder="No need to buy coffee">
+			</div>			
+		</div>	
+	</section>
+
+   <section data-role="page" id="page-restroom-add">
+      <header data-role="header">
+         <h1>Add Animal!</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form class="fill-parent display-flex flex-vertical" id="animal-add-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  <div class="form-control">
+                     <label for="restroom-add-name" class="form-label">Name</label>
+                     <input type="text" id="restroom-add-name" class="form-input" data-role="none" placeholder="Name">
+                  </div>
+                  <div class="form-control">
+                     <label for="restroom-add-password" class="form-label">Password</label>
+                     <input type="text" id="restroom-add-password" class="form-input" data-role="none" placeholder="Password">
+                  </div>
+                  <div class="form-control">
+                     <label for="restroom-add-info" class="form-label">Detail Information</label>
+                     <input type="text" id="restroom-add-info" class="form-input" data-role="none" placeholder="Detail Informaion">
+                  </div>
+               </div>
+            </div>
+            <div class="flex-none padding-md">
+               <!-- <button type="submit" class="form-button">Save</button> -->
+               <a href="#page-list" class="form-button">Save</a>
+            </div>
+         </form>
+      </div>
+   </section>	
+
+	<section data-role="page" id="page-location-choose-restroom">
+		<header data-role="header">
+			<h1>Choose Restroom</h1>
+			<ul>
+				<li><a href="#page-home" data-rel="back">Back</a></li>
+				<li class="flex-stretch"></li>
+				<li><a href="#page-location-set-location">Next</a></li>
+			</ul>
+		</header>	
+		<div data-role="main">
+			Restroom
+		</div>	
+	</section>
+
+	<section data-role="page" id="page-location-set-location">
+		<header data-role="header">
+			<h1>Set Location</h1>
+			<ul>
+				<li><a href="#page-location-choose-restroom" data-rel="back">Back</a></li>
+				<li class="flex-stretch"></li>
+				<li><a href="#page-location-description">Next</a></li>
+			</ul>
+		</header>	
 		<div data-role="main">
 			Restroom
 		</div>	
 	</section>	
+
+	<section data-role="page" id="page-location-description">
+		<header data-role="header">
+			<h1>Description</h1>
+			<ul>
+				<li><a href="#page-location-set-location" data-rel="back">Cancel</a></li>
+				<li class="flex-stretch"></li>
+				<li><a href="#page-list">Save</a></li>
+			</ul>
+		</header>	
+		<div data-role="main">
+			Restroom
+		</div>	
+	</section>
+
+	<script type="text/template" id="footer-template">			
+		<ul class="nav-icon-set">
+			<li><a href="#page-home" data-activateone=".nav-icon-set li:nth-child(1)">
+				<span class="nav-icon"><img class="icon" src="img/icons/home.png"></span>
+				<span class="nav-icon-label">Home</span>
+			</a></li>
+			<li><a href="#page-list" data-activateone=".nav-icon-set li:nth-child(2)">
+				<span class="nav-icon"><img class="icon" src="img/icons/list.png"></span>
+				<span class="nav-icon-label">List</span>
+			</a></li>
+			<li><a href="#page-user-profile" data-activateone=".nav-icon-set li:nth-child(3)">
+				<span class="nav-icon"><img class="icon" src="img/icons/profile.png"></span>
+				<span class="nav-icon-label">Profile</span>
+			</a></li>
+		</ul>
+	</script>
+
+	<script type="text/template" id="restroomlist-item-template">			
+		<a href="#page-restroom-profile" class="display-flex">
+			<div class="flex-none restroomlist-item-image">
+				<img src="https://via.placeholder.com/400x400text=Restroom" alt="">
+			</div>
+			<div class="flex-stretch restroomlist-item-body padding-md">
+				<!-- <div class="restroomlist-item-name">Restroom</div> -->
+				<div class="restroomlist-item-type"><strong>Type:</strong> Name of store</div>
+				<div class="restroomlist-item-password"><strong>Password:</strong> 12345</div>
+			</div>
+		</a>
+	</script>
 
 </body>
 </html>
