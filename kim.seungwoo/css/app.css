@@ -570,3 +570,15 @@ h3.signup-heading {
 	font-size: 0.7rem;
 
 }
+
+.restroom-img {
+	height: 20vh;
+	width: 20vh;
+	border-radius: 3em;
+	/*border: 0.3em solid var(--color-main-dark);*/
+	margin: 1.5em auto 2em;
+	background-image: url(../img/starbucks-img.png);
+	background-size: cover;
+	
+
+}

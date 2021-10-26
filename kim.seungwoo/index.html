@@ -96,7 +96,7 @@
 				</div>
 
 				<div class="floater bottom right">
-						<a href="#page-location-choose-restroom" class="btn-circle">&plus;</a>
+						<a href="#page-restroom-add" class="btn-circle">&plus;</a>
 				</div>
 
 <!-- 				<div class="modal" id="recent-add-modal">
@@ -211,24 +211,24 @@
 
 				<div class="form-control">
 					<div for="add-profile-image" class="profile-img" style="display: block;" data-role="none"></div>
-					<a href="#" class="edit-profile-image ui-link">Edit profile image</a>
+					<a href="#" class="edit-profile-image ui-link" style="color: var(--color-neutral-dark); font-weight: 300; font-size: 1em;">Edit</a>
 				</div>
 
 				<div class="form-control">
-					<label for="add-profile-firstname" class="form-label">First Name</label>
-					<a href="#" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
-					<input class="form-input" type="text" id="add-profile-name" data-role="none" placeholder="Seungwoo">
+					<label for="add-profile-firstname" class="form-label">Name</label>
+					<a href="#edit-name" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
+					<input class="form-input" type="text" id="add-profile-name" data-role="none" placeholder="Seungwoo Kim">
 				</div>
 
 				<div class="form-control">
-					<label for="add-profile-lastname" class="form-label">Last Name</label>
-					<a href="#" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
-					<input class="form-input" type="text" id="add-profile-name" data-role="none" placeholder="Kim">
+					<label for="add-profile-lastname" class="form-label">Phone</label>
+					<a href="#edit-phone" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
+					<input class="form-input" type="text" id="add-profile-phone" data-role="none" placeholder="123-123-1234">
 				</div>
 
 				<div class="form-control">
 					<label for="add-profile-email" class="form-label">Email</label>
-					<a href="#" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
+					<a href="#edit-email" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
 					<input class="form-input" type="text" id="add-profile-email" data-role="none" placeholder="kim.seungwoo126@gmail.com">
 				</div>
 		
@@ -275,7 +275,7 @@
 
    <section data-role="page" id="page-restroom-add">
       <header data-role="header">
-         <h1>Add Animal!</h1>
+         <h1>Add Restroom</h1>
          <ul>
             <li><a href="#" data-rel="back">Cancel</a></li>
          </ul>
@@ -284,6 +284,9 @@
          <form class="fill-parent display-flex flex-vertical" id="animal-add-form" data-ajax="false">
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
+	               <div class="form-control">
+							<div for="add-restroom-image" class="restroom-img" style="display: block;" data-role="none"></div>
+						</div>
                   <div class="form-control">
                      <label for="restroom-add-name" class="form-label">Name</label>
                      <input type="text" id="restroom-add-name" class="form-input" data-role="none" placeholder="Name">
@@ -293,8 +296,16 @@
                      <input type="text" id="restroom-add-password" class="form-input" data-role="none" placeholder="Password">
                   </div>
                   <div class="form-control">
-                     <label for="restroom-add-info" class="form-label">Detail Information</label>
-                     <input type="text" id="restroom-add-info" class="form-input" data-role="none" placeholder="Detail Informaion">
+                     <label for="restroom-add-info" class="form-label">Sex</label>
+                     <input type="text" id="restroom-add-info" class="form-input" data-role="none" placeholder="Male or Female or Both">
+                  </div>
+                  <div class="form-control">
+                     <label for="restroom-add-info" class="form-label">Toilet</label>
+                     <input type="text" id="restroom-add-info" class="form-input" data-role="none" placeholder="Number of toilets">
+                  </div>
+                  <div class="form-control">
+                     <label for="restroom-add-info" class="form-label">Cleanliness</label>
+                     <input type="text" id="restroom-add-info" class="form-input" data-role="none" placeholder="Very Good, Good, Bad, Very Bad">
                   </div>
                </div>
             </div>
@@ -348,6 +359,85 @@
 		</div>	
 	</section>
 
+	<!-- Profile edit -->
+
+	<section data-role="page" id="edit-name">
+      <header data-role="header">
+         <h1>Edit Name</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form class="fill-parent display-flex flex-vertical" id="profile-name-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  <div class="form-control">
+                     <label for="profile-add-name" class="form-label">Name</label>
+                     <input type="text" id="" class="form-input" data-role="none" placeholder="Name">
+                  </div>
+               </div>
+            </div>
+            <div class="flex-none padding-md">
+               <!-- <button type="submit" class="form-button">Save</button> -->
+               <a href="#page-user-profile" class="form-button">Save</a>
+            </div>
+         </form>
+      </div>
+   </section>
+
+   <section data-role="page" id="edit-phone">
+      <header data-role="header">
+         <h1>Edit Phone</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form class="fill-parent display-flex flex-vertical" id="profile-phone-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  <div class="form-control">
+                     <label for="profile-add-name" class="form-label">Phone</label>
+                     <input type="text" id="" class="form-input" data-role="none" placeholder="Enter phone number">
+                  </div>
+               </div>
+            </div>
+            <div class="flex-none padding-md">
+               <!-- <button type="submit" class="form-button">Save</button> -->
+               <a href="#page-user-profile" class="form-button">Save</a>
+            </div>
+         </form>
+      </div>
+   </section>   
+
+   <section data-role="page" id="edit-email">
+      <header data-role="header">
+         <h1>Edit Email</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form class="fill-parent display-flex flex-vertical" id="profile-email-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  <div class="form-control">
+                     <label for="profile-add-email" class="form-label">Email</label>
+                     <input type="text" id="" class="form-input" data-role="none" placeholder="Enter Email Address">
+                  </div>
+               </div>
+            </div>
+            <div class="flex-none padding-md">
+               <!-- <button type="submit" class="form-button">Save</button> -->
+               <a href="#page-user-profile" class="form-button">Save</a>
+            </div>
+         </form>
+      </div>
+   </section>
+
+
+
 	<script type="text/template" id="footer-template">			
 		<ul class="nav-icon-set">
 			<li><a href="#page-home" data-activateone=".nav-icon-set li:nth-child(1)">
@@ -372,8 +462,9 @@
 			</div>
 			<div class="flex-stretch restroomlist-item-body padding-md">
 				<!-- <div class="restroomlist-item-name">Restroom</div> -->
-				<div class="restroomlist-item-type"><strong>Type:</strong> Name of store</div>
+				<div class="restroomlist-item-type"><strong>Name:</strong> Name of store</div>
 				<div class="restroomlist-item-password"><strong>Password:</strong> 12345</div>
+				<div class="restroomlist-item-password"><strong>Cleaniness:</strong> Very Good</div>
 			</div>
 		</a>
 	</script>
