@@ -529,4 +529,44 @@ h3.signup-heading {
 
 }
 
+.profile-img {
+	height: 20vh;
+	width: 20vh;
+	border-radius: 10em;
+	border: 0.3em solid var(--color-main-dark);
+	margin: 1.5em auto 2em;
+	background-image: url(../img/profile-img.png);
+	background-size: cover;
 
+}
+
+.edit-profile-image {
+	display: block;
+	text-align: center;
+	margin: -20px 0px 50px 0px;
+}
+
+.icon {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+}
+
+.edit-icon {
+	display: block;
+	position: absolute;
+	line-height: 2rem;
+	font-size: 1.5rem;
+	padding: 0 0 0 12em;
+}
+
+.edit-icon .icon {
+	vertical-align: right;
+}
+
+.edit-icon-label {
+	display: block;
+	line-height: 1rem;
+	font-size: 0.7rem;
+
+}
