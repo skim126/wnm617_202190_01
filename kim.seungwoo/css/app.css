@@ -540,6 +540,16 @@ h3.signup-heading {
 
 }
 
+/*.user-profile-image {
+	height: 20vh;
+	width: 20vh;
+	border-radius: 10em;
+	border: 0.3em solid var(--color-main-dark);
+	margin: 1.5em auto 2em;
+	background-size: cover;
+
+}*/
+
 .edit-profile-image {
 	display: block;
 	text-align: center;

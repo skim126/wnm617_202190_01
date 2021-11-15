@@ -32,9 +32,7 @@ function makeQuery($c,$ps,$p,$makeResults=true) {
       } else {
          $stmt = $c->query($ps);
       }
-
       $r = $makeResults ? fetchAll($stmt) : [];
-
       return [
          // "statement"=>$ps,
          // "params"=>$p,
@@ -45,13 +43,47 @@ function makeQuery($c,$ps,$p,$makeResults=true) {
    }
 }
 
+function makeStatement($data) {
+   try{
+      $c = makeConn();
+      $t = @$data->type;
+      $p = @$data->params;
+
+      switch($t) {
+         case "users_all":
+            return makeQuery($c,"SELECT * FROM `track_users`",$p);
+         case "restrooms_all":
+            return makeQuery($c,"SELECT * FROM `track_restrooms`",$p);
+         case "locations_all":
+            return makeQuery($c,"SELECT * FROM `track_locations`",$p);
+
+         case "user_by_id":
+            return makeQuery($c,"SELECT * FROM `track_users` WHERE `id`=?",$p);
+         case "restroom_by_id":
+            return makeQuery($c,"SELECT * FROM `track_restrooms` WHERE `id`=?",$p);
+         case "location_by_id":
+            return makeQuery($c,"SELECT * FROM `track_locations` WHERE `id`=?",$p);
+
+         case "restrooms_by_user_id":
+            return makeQuery($c,"SELECT * FROM `track_restrooms` WHERE `user_id`=?",$p);
+         case "locations_by_restroom_id":
+            return makeQuery($c,"SELECT * FROM `track_locations` WHERE `restroom_id`=?",$p);
+
+         case "check_signin":
+            return makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? And `password`=md5(?)",$p);    
+
+         default: return ["error"=>"No Matched Type"];
+      }
+   } catch(Exception $e) {
+      return ["error"=>"Bad Data"];
+   }
+}
+
+$data = json_decode(file_get_contents("php://input"));
+
 die(
    json_encode(
-      makeQuery(
-         makeConn(),
-         "SELECT * FROM track_locations WHERE id = ?",
-         [6]
-      ),
+      makeStatement($data),
       JSON_NUMERIC_CHECK
    )
 );

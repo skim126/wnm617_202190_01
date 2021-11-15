@@ -13,6 +13,9 @@
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/app.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/pages.js"></script>
+	<script src="js/parts.js"></script>
 	<script src="js/signin.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -129,19 +132,7 @@
 		</div>		
 		<div data-role="main">
 			<div class="overscroll floater fill-parent">
-					<ul class="restroomlist">
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-						<li class="restroomlist-item" data-template="#restroomlist-item-template"></li>
-					</ul>				
+					<div class="restroomlist"></div>			
 			</div>
 				<div class="floater bottom right">
 						<a href="#page-restroom-add" class="btn-circle">&plus;</a>
@@ -151,65 +142,14 @@
 	
 	</section>
 
-	<!-- <section data-role="page" id="page-addlocation">
-		<div data-role="main"  class="overscroll display-flex flex-vertical">
-			<h4 class="page-title">Add Location</h4>
-
-			<form data-ajax="false" class="form" id="addlocation-form" style="padding: 10px;">
-
-				<div class="form-control">
-					<label for="add-storename" class="form-label"></label>
-					<h6>Store Name</h6>
-					<input class="form-input" type="text" id="add-storename" data-role="none" placeholder="">
-				</div>
-
-				<div class="form-control">
-					<label for="add-address" class="form-label"></label>
-					<h6>Address</h6>
-					<input class="form-input" type="text" id="add-address" data-role="none" placeholder="">
-				</div>
-
-				<div class="form-control">
-					<label for="add-password" class="form-label"></label>
-					<h6>Password</h6>
-					<input class="form-input" type="text" id="add-password" data-role="none" placeholder="">
-				</div>
-
-				<div class="form-control">
-					<label for="add-detailinformation" class="form-label"></label>
-					<h6>Detail Information</h6>
-					<input class="form-input" type="text" id="add-detailinformation" data-role="none" placeholder="">
-				</div>
-
-				<div class="form-control">
-					<label for="add-rating" class="form-label"></label>
-					<h6>Rating</h6>
-					<input class="form-input" type="" id="add-rating" data-role="none" placeholder="">
-				</div>
-
-				<div class="form-control">
-					<input type="submit" value="Save" class="form-button" data-role="none">
-				</div>
-			</form>
-		</div>
-		<footer data-role="footer">
-			<ul>
-				<li><a href="#page-home">Home</a></li>
-				<li><a href="#page-list">List</a></li>
-				<li><a href="#page-user-profile">Profile</a></li>
-			</ul>
-		</footer>		
-	</section> -->
-
 	<section data-role="page" id="page-user-profile">
 		<div class="header">
 			<h4 class="page-title">Profile</h4>
-		</div>		
-		<div data-role="main"  class="overscroll display-flex flex-vertical padding-md">
+		</div>
 
-			<form data-ajax="false" class="form" id="" style="padding: 10px;">
+			<!-- <form data-ajax="false" class="form" id="" style="padding: 10px;"> -->
 
-				<div class="form-control">
+<!-- 				<div class="form-control">
 					<div for="add-profile-image" class="profile-img" style="display: block;" data-role="none"></div>
 					<a href="#" class="edit-profile-image ui-link" style="color: var(--color-neutral-dark); font-weight: 300; font-size: 1em;">Edit</a>
 				</div>
@@ -230,13 +170,13 @@
 					<label for="add-profile-email" class="form-label">Email</label>
 					<a href="#edit-email" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
 					<input class="form-input" type="text" id="add-profile-email" data-role="none" placeholder="kim.seungwoo126@gmail.com">
-				</div>
-		
-				<div>
+				</div> -->
+				<div data-role="main"  class="overscroll display-flex flex-vertical">
+<!-- 				<div>
 					<button class="form-button js-logout">
 						Log Out
 					</button>
-				</div>
+				</div> -->
 			</form>
 			<div class="flex-stretch"></div>
 		</div>
@@ -253,7 +193,7 @@
 			</ul>
 		</header>	
 		<div class="padding-md display-flex flex-vertical" data-role="main">
-			<div>
+			<div class="restroom-profile-top">
 				<img src="https://via.placeholder.com/350x350text=Restroom" alt="">
 			</div>
 			<div class="form-control">
@@ -281,7 +221,7 @@
          </ul>
       </header>
       <div data-role="main">
-         <form class="fill-parent display-flex flex-vertical" id="animal-add-form" data-ajax="false">
+         <form class="fill-parent display-flex flex-vertical" id="restroom-add-form" data-ajax="false">
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
 	               <div class="form-control">
@@ -297,15 +237,15 @@
                   </div>
                   <div class="form-control">
                      <label for="restroom-add-info" class="form-label">Sex</label>
-                     <input type="text" id="restroom-add-info" class="form-input" data-role="none" placeholder="Male or Female or Both">
+                     <input type="text" id="restroom-add-sex" class="form-input" data-role="none" placeholder="Male or Female or Both">
                   </div>
                   <div class="form-control">
                      <label for="restroom-add-info" class="form-label">Toilet</label>
-                     <input type="text" id="restroom-add-info" class="form-input" data-role="none" placeholder="Number of toilets">
+                     <input type="text" id="restroom-add-toilet" class="form-input" data-role="none" placeholder="Number of toilets">
                   </div>
                   <div class="form-control">
                      <label for="restroom-add-info" class="form-label">Cleanliness</label>
-                     <input type="text" id="restroom-add-info" class="form-input" data-role="none" placeholder="Very Good, Good, Bad, Very Bad">
+                     <input type="text" id="restroom-add-cleanliness" class="form-input" data-role="none" placeholder="Very Good, Good, Bad, Very Bad">
                   </div>
                </div>
             </div>
@@ -399,7 +339,7 @@
                <div class="fill-parent overscroll position-absolute padding-md">
                   <div class="form-control">
                      <label for="profile-add-name" class="form-label">Phone</label>
-                     <input type="text" id="" class="form-input" data-role="none" placeholder="Enter phone number">
+                     <input type="text" class="form-input" data-role="none" placeholder="Enter phone number">
                   </div>
                </div>
             </div>
@@ -424,7 +364,7 @@
                <div class="fill-parent overscroll position-absolute padding-md">
                   <div class="form-control">
                      <label for="profile-add-email" class="form-label">Email</label>
-                     <input type="text" id="" class="form-input" data-role="none" placeholder="Enter Email Address">
+                     <input type="text" class="form-input" data-role="none" placeholder="Enter Email Address">
                   </div>
                </div>
             </div>
@@ -455,19 +395,6 @@
 		</ul>
 	</script>
 
-	<script type="text/template" id="restroomlist-item-template">			
-		<a href="#page-restroom-profile" class="display-flex">
-			<div class="flex-none restroomlist-item-image">
-				<img src="https://via.placeholder.com/400x400text=Restroom" alt="">
-			</div>
-			<div class="flex-stretch restroomlist-item-body padding-md">
-				<!-- <div class="restroomlist-item-name">Restroom</div> -->
-				<div class="restroomlist-item-type"><strong>Name:</strong> Name of store</div>
-				<div class="restroomlist-item-password"><strong>Password:</strong> 12345</div>
-				<div class="restroomlist-item-password"><strong>Cleaniness:</strong> Very Good</div>
-			</div>
-		</a>
-	</script>
 
 </body>
 </html>
