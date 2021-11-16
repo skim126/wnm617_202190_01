@@ -10,10 +10,11 @@ $(()=>{
    .on("pagecontainerbeforeshow",function(event, ui){
       //Page Routing
       switch(ui.toPage[0].id) {
-         case "page-recent": RecentPage(); break;
+         case "page-home": HomePage(); break;
          case "page-list": ListPage(); break;
          case "page-user-profile": UserProfilePage(); break;
          case "page-restroom-profile": RestroomProfilePage(); break;
+         case "page-restroom-edit": RestroomEditPage(); break;
       }
    })
 
@@ -38,6 +39,15 @@ $(()=>{
       if(!$(this).data("id")) throw("No ID on Element");
       sessionStorage.restroomId = $(this).data("id");
       $.mobile.navigate("#page-restroom-profile");
+   })
+
+
+   .on("click",".restroom-profile-middle li",function(e){
+      let id = $(this).index();
+      $(this).addClass("active")
+         .siblings().removeClass("active");
+      $(this).closest(".restroom-profile-middle").next().children().eq(id).addClass("active")
+         .siblings().removeClass("active");
    })
 
 

@@ -287,7 +287,7 @@ h3.signup-heading {
 	border-width: 0;
 	background-color: var(--color-main-dark);
 	color: white;
-/*	margin: 0;*/
+	margin-top: 30px;
 	padding: 0.5em 0.5em;
 	border-radius: 0.3em;
 	outline: 0;
@@ -311,9 +311,6 @@ h3.signup-heading {
 	width: 100%;
 	height: 100%;
 	border-radius: 10px;
-	background-image: url(../img/map.png);
-	background-size: cover;
-	background-position: center;
 }
 
 /*Search bar*/
@@ -591,4 +588,40 @@ h3.signup-heading {
 	background-size: cover;
 	
 
+}
+
+/* genetic nav */
+.nav {
+   list-style-type: none;
+   margin-top: 0;
+   margin-bottom: 0;
+   padding-left: 0;
+   display: flex;
+}
+.nav li {
+   flex: 1 1 auto;
+   padding: 0 1em;
+   text-align: center;
+   line-height: var(--header-height);
+}
+
+/* Restroom profile */
+.restroom-profile-top {
+   flex: none;
+   height: 40vh;
+}
+.restroom-profile-bottom {
+   flex: 1 1 auto;
+   position: relative;
+}
+
+
+
+.floating-header {
+   position: absolute;
+   background-color: rgba(255,255,255,0.15);
+   width: 100%;
+   top: 0;
+   left: 0;
+   box-shadow: none;
 }

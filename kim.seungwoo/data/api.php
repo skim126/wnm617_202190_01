@@ -50,15 +50,15 @@ function makeStatement($data) {
       $p = @$data->params;
 
       switch($t) {
-         case "users_all":
-            return makeQuery($c,"SELECT * FROM `track_users`",$p);
-         case "restrooms_all":
-            return makeQuery($c,"SELECT * FROM `track_restrooms`",$p);
-         case "locations_all":
-            return makeQuery($c,"SELECT * FROM `track_locations`",$p);
+         // case "users_all":
+         //    return makeQuery($c,"SELECT * FROM `track_users`",$p);
+         // case "restrooms_all":
+         //    return makeQuery($c,"SELECT * FROM `track_restrooms`",$p);
+         // case "locations_all":
+         //    return makeQuery($c,"SELECT * FROM `track_locations`",$p);
 
          case "user_by_id":
-            return makeQuery($c,"SELECT * FROM `track_users` WHERE `id`=?",$p);
+            return makeQuery($c,"SELECT id,username,name,email,img FROM `track_users` WHERE `id`=?",$p);
          case "restroom_by_id":
             return makeQuery($c,"SELECT * FROM `track_restrooms` WHERE `id`=?",$p);
          case "location_by_id":
@@ -70,7 +70,26 @@ function makeStatement($data) {
             return makeQuery($c,"SELECT * FROM `track_locations` WHERE `restroom_id`=?",$p);
 
          case "check_signin":
-            return makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? And `password`=md5(?)",$p);    
+            return makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? And `password`=md5(?)",$p);
+
+         case "home_restroom_locations":
+            return makeQuery($c,"SELECT *
+               FROM `track_restrooms` a
+               JOIN (
+                  SELECT lg.*
+                  FROM `track_locations` lg
+                  WHERE lg.id = (
+                     SELECT lt.id
+                     FROM `track_locations` lt
+                     WHERE lt.restroom_id = lg.restroom_id
+                     ORDER BY lt.date_create DESC
+                     LIMIT 1
+                  )
+               ) l
+               ON a.id = l.restroom_id
+               WHERE a.user_id = ?
+               ORDER BY l.restroom_id, l.date_create DESC
+               ",$p);      
 
          default: return ["error"=>"No Matched Type"];
       }

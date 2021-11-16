@@ -24,4 +24,10 @@ const makeUserProfile = (o) => `
    <h5>&commat;${o.username}</h5>
    <div><a href="#page-user-settings">Settings</a></div>
 </div>
+
+<div data-role="main"  class="overscroll display-flex flex-vertical">
+	<button class="form-button js-logout">
+		Log Out
+	</button>
+</div>
 `;

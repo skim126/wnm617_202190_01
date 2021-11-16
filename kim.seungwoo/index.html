@@ -16,7 +16,15 @@
 	<script src="js/functions.js"></script>
 	<script src="js/pages.js"></script>
 	<script src="js/parts.js"></script>
+	<script src="js/maps.js"></script>
 	<script src="js/signin.js"></script>
+
+	<!-- AIzaSyBjjU05NGmnnARRQdMmZ0ScZYadaEh9plM -->
+
+	<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjjU05NGmnnARRQdMmZ0ScZYadaEh9plM"
+      async
+    ></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 
@@ -91,7 +99,8 @@
 			<h4 class="page-title">Home</h4>
 		</div>
 		<div data-role="main">
-			<div class="map">
+
+			<div class="map"></div>
 				<div class="flex-stretch search-container">	
 					<form action="">
 						<input class="search-bar" type="text" name="search" placeholder="Search" data-role="none">
@@ -102,25 +111,6 @@
 						<a href="#page-restroom-add" class="btn-circle">&plus;</a>
 				</div>
 
-<!-- 				<div class="modal" id="recent-add-modal">
-					<div class="modal-back" data-deactivate="#recent-add-modal"></div>
-					<div class="modal-drawer left">
-						<div class="modal-head display-flex">
-							<div class="flex-stretch">Drawer</div>
-							<div class="flex-none">
-								<img class="icon" src="img/icons/close.png" data-deactivate="#recent-add-modal">
-							</div>
-						</div>
-						<div class="modal-body">
-							Body
-						</div>
-					</div>
-				</div>	 -->
-
-			</div>
-			<div class="floater" style="top:35%;left:35%;">
-				<a href="#" data-activate="#recent-add-modal"><img src="img/icons/marker.png" class="icon" style="width:25px;height:25px;"></a>
-			</div>
 		</div>
 
 		<footer data-role="footer" data-template="#footer-template"></footer>
@@ -129,17 +119,16 @@
 	<section data-role="page" id="page-list">
 		<div class="header">
 			<h4 class="page-title">List</h4>
-		</div>		
+		</div>
 		<div data-role="main">
 			<div class="overscroll floater fill-parent">
 					<div class="restroomlist"></div>			
 			</div>
 				<div class="floater bottom right">
 						<a href="#page-restroom-add" class="btn-circle">&plus;</a>
-				</div>	
+				</div>
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
-	
 	</section>
 
 	<section data-role="page" id="page-user-profile">
@@ -147,37 +136,7 @@
 			<h4 class="page-title">Profile</h4>
 		</div>
 
-			<!-- <form data-ajax="false" class="form" id="" style="padding: 10px;"> -->
-
-<!-- 				<div class="form-control">
-					<div for="add-profile-image" class="profile-img" style="display: block;" data-role="none"></div>
-					<a href="#" class="edit-profile-image ui-link" style="color: var(--color-neutral-dark); font-weight: 300; font-size: 1em;">Edit</a>
-				</div>
-
-				<div class="form-control">
-					<label for="add-profile-firstname" class="form-label">Name</label>
-					<a href="#edit-name" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
-					<input class="form-input" type="text" id="add-profile-name" data-role="none" placeholder="Seungwoo Kim">
-				</div>
-
-				<div class="form-control">
-					<label for="add-profile-lastname" class="form-label">Phone</label>
-					<a href="#edit-phone" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
-					<input class="form-input" type="text" id="add-profile-phone" data-role="none" placeholder="123-123-1234">
-				</div>
-
-				<div class="form-control">
-					<label for="add-profile-email" class="form-label">Email</label>
-					<a href="#edit-email" class="edit-icon"> <img class="icon" src="img/icons/arrow.png"></a>
-					<input class="form-input" type="text" id="add-profile-email" data-role="none" placeholder="kim.seungwoo126@gmail.com">
-				</div> -->
-				<div data-role="main"  class="overscroll display-flex flex-vertical">
-<!-- 				<div>
-					<button class="form-button js-logout">
-						Log Out
-					</button>
-				</div> -->
-			</form>
+		<div data-role="main"  class="overscroll display-flex flex-vertical">
 			<div class="flex-stretch"></div>
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>		
@@ -186,17 +145,29 @@
 	<!-- Restroom Page -->
 
 	<section data-role="page" id="page-restroom-profile">
-		<header data-role="header">
+		<header data-role="header" class="display-flex flex-vertical">
 			<h1>Restroom</h1>
 			<ul>
 				<li><a href="#" data-rel="back">Back</a></li>
+				<li class="flex-stretch"></li>
+				<li><a href="#page-restroom-edit">Edit</a></li>
 			</ul>
 		</header>	
-		<div class="padding-md display-flex flex-vertical" data-role="main">
+		<div class="display-flex flex-vertical" data-role="main">
 			<div class="restroom-profile-top">
-				<img src="https://via.placeholder.com/350x350text=Restroom" alt="">
+				<img src="https://via.placeholder.com/350x350text=Restroom" alt="" style="width:100%;height:100%;object-fit:cover">
 			</div>
-			<div class="form-control">
+			<div class="restroom-profile-middle">
+				<ul class="nav">
+					<li>map</li>
+					<li>description</li>
+				</ul>
+			</div>
+			<div class="restroom-profile-bottom">
+				<div class="map"></div>
+				<div class="description"></div>
+			</div>
+			<!-- <div class="form-control">
 				<lable for="restroom-add-name" class="form-label">Name</lable>
 				<input type="text" class="form-input" data-role="none" placeholder="Starbucks Sutter&Powell">
 			</div>
@@ -209,7 +180,7 @@
 			<div class="form-control">
 				<lable for="restroom-add-info" class="form-label">Detail Information</lable>
 				<input type="text" class="form-input" data-role="none" placeholder="No need to buy coffee">
-			</div>			
+			</div>			 -->
 		</div>	
 	</section>
 
@@ -246,6 +217,50 @@
                   <div class="form-control">
                      <label for="restroom-add-info" class="form-label">Cleanliness</label>
                      <input type="text" id="restroom-add-cleanliness" class="form-input" data-role="none" placeholder="Very Good, Good, Bad, Very Bad">
+                  </div>
+               </div>
+            </div>
+            <div class="flex-none padding-md">
+               <!-- <button type="submit" class="form-button">Save</button> -->
+               <a href="#page-list" class="form-button">Save</a>
+            </div>
+         </form>
+      </div>
+   </section>
+
+   <section data-role="page" id="page-restroom-edit">
+      <header data-role="header">
+         <h1>Edit Restroom</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form class="fill-parent display-flex flex-vertical" id="restroom-edit-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+	               <div class="form-control">
+							<div for="edit-restroom-image" class="restroom-img" style="display: block;" data-role="none"></div>
+						</div>
+                  <div class="form-control">
+                     <label for="restroom-edit-name" class="form-label">Name</label>
+                     <input type="text" id="restroom-edit-name" class="form-input" data-role="none" placeholder="Name">
+                  </div>
+                  <div class="form-control">
+                     <label for="restroom-edit-password" class="form-label">Password</label>
+                     <input type="text" id="restroom-edit-password" class="form-input" data-role="none" placeholder="Password">
+                  </div>
+                  <div class="form-control">
+                     <label for="restroom-edit-info" class="form-label">Sex</label>
+                     <input type="text" id="restroom-edit-sex" class="form-input" data-role="none" placeholder="Male or Female or Both">
+                  </div>
+                  <div class="form-control">
+                     <label for="restroom-edit-info" class="form-label">Toilet</label>
+                     <input type="text" id="restroom-edit-toilet" class="form-input" data-role="none" placeholder="Number of toilets">
+                  </div>
+                  <div class="form-control">
+                     <label for="restroom-edit-info" class="form-label">Cleanliness</label>
+                     <input type="text" id="restroom-edit-cleanliness" class="form-input" data-role="none" placeholder="Very Good, Good, Bad, Very Bad">
                   </div>
                </div>
             </div>
