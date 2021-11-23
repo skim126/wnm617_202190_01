@@ -89,7 +89,7 @@ function makeStatement($data) {
                ON a.id = l.restroom_id
                WHERE a.user_id = ?
                ORDER BY l.restroom_id, l.date_create DESC
-               ",$p);      
+               ",$p);
 
          default: return ["error"=>"No Matched Type"];
       }

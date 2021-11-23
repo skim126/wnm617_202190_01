@@ -38,6 +38,25 @@ const HomePage = async() => {
    let mapEl = await makeMap("#page-home .map");
    makeMarkers(mapEl,restrooms);
 
+   let {infoWindow,map,markers} = mapEl.data();
+   markers.forEach((o,i)=>{
+      o.addListener("click",function(){
+
+         // Simple Example
+         // sessionStorage.restroomId = restrooms[i].restroom_id;
+         // $.mobile.navigate("#page-restroom-profile")
+
+         // Info Window Example
+         // infoWindow.open(map,o);
+         // infoWindow.setContent(makeRestroomPopup(restrooms[i]))
+
+         // activate example
+         $("#home-drawer")
+            .addClass("active")
+            .find(".modal-body")
+            .html(makeRestroomPopup(restrooms[i]))
+      })
+   });
 }
 
 const UserProfilePage = async() => {
@@ -48,6 +67,19 @@ const UserProfilePage = async() => {
 
    let [user] = result;
    $("#page-user-profile [data-role='main']").html(makeUserProfile(user));
+}
+
+const UserEditPage = async() => {
+   let user_result = await resultQuery({
+      type:'user_by_id',
+      params:[sessionStorage.userId]
+   });
+
+   let [user] = user_result;
+
+   $("#user-edit-form .fill-parent").html(
+      makeUserFormInputs(user,"user-edit")
+      );
 }
 
 
@@ -79,10 +111,23 @@ const RestroomEditPage = async() => {
    });
 
    let [restroom] = restroom_result;
-   $(".restroom-profile-top img").attr("src",restroom.img);
 
-   $("#restroom-edit-name").val(restroom.name);
-   $("#restroom-edit-password").val(restroom.password);
-   $("#restroom-edit-info").val(restroom.sex);
-
+   $("#restroom-edit-form .fill-parent").html(
+      makeRestroomFormInputs(restroom,"restroom-edit")
+      );
 }
+
+const RestroomAddPage = async() => {
+   $("#restroom-add-form .fill-parent").html(
+      makeRestroomFormInputs({
+         store:'',
+         needs:'',
+         type:'',
+         description:'',
+         password:'',
+         
+
+      },"restroom-add")
+      );
+}
+

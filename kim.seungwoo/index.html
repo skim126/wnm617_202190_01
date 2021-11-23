@@ -107,8 +107,15 @@
 					</form>
 				</div>
 
+				<div id="home-drawer" class="modal">
+					<div class="modal-back transparent" data-deactivate="#home-drawer"></div>
+					<div class="modal-drawer basin top">
+						<div class="modal-body"></div>
+					</div>
+				</div>
+
 				<div class="floater bottom right">
-						<a href="#page-restroom-add" class="btn-circle">&plus;</a>
+						<a href="#page-location-choose-restroom" class="btn-circle" data-setnavigateback="-3">&plus;</a>
 				</div>
 
 		</div>
@@ -131,6 +138,9 @@
 		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
 
+
+	<!-- User page -->
+
 	<section data-role="page" id="page-user-profile">
 		<div class="header">
 			<h4 class="page-title">Profile</h4>
@@ -140,6 +150,54 @@
 			<div class="flex-stretch"></div>
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>		
+	</section>
+
+
+	<section data-role="page" id="page-user-settings">
+		<header data-role="header">
+			<h1>User Settings</h1>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+			</ul>
+		</header>	
+
+		<div data-role="main"  class="overscroll display-flex flex-vertical">
+			<ul class="nav-page-links">
+				<li>
+					<a href="#page-user-edit">Update User Info</a>
+				</li>
+				<li>
+					<a href="#page-user-edit">Change Password</a>
+				</li>
+				<li>
+					<a href="#" class="js-logout">Logout</a>
+				</li>
+			</ul>
+		</div>	
+	</section>
+
+
+	<section data-role="page" id="page-user-edit">
+		<header data-role="header">
+			<h1>User Edit</h1>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+				<li class="flex-stretch"></li>
+				<li><a href="#" data-rel="back">Save</a></li>
+			</ul>
+		</header>	
+
+		<div data-role="main"  class="display-flex flex-vertical">
+			<div class="flex-stretch">
+				<form class="fill-parent display-flex flex-vertical" id="user-edit-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+	               
+               </div>
+            </div>
+         </form>
+			</div>
+		</div>	
 	</section>	
 
 	<!-- Restroom Page -->
@@ -195,7 +253,7 @@
          <form class="fill-parent display-flex flex-vertical" id="restroom-add-form" data-ajax="false">
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
-	               <div class="form-control">
+	               <!-- <div class="form-control">
 							<div for="add-restroom-image" class="restroom-img" style="display: block;" data-role="none"></div>
 						</div>
                   <div class="form-control">
@@ -217,7 +275,7 @@
                   <div class="form-control">
                      <label for="restroom-add-info" class="form-label">Cleanliness</label>
                      <input type="text" id="restroom-add-cleanliness" class="form-input" data-role="none" placeholder="Very Good, Good, Bad, Very Bad">
-                  </div>
+                  </div> -->
                </div>
             </div>
             <div class="flex-none padding-md">
@@ -239,7 +297,7 @@
          <form class="fill-parent display-flex flex-vertical" id="restroom-edit-form" data-ajax="false">
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
-	               <div class="form-control">
+	               <!-- <div class="form-control">
 							<div for="edit-restroom-image" class="restroom-img" style="display: block;" data-role="none"></div>
 						</div>
                   <div class="form-control">
@@ -261,7 +319,7 @@
                   <div class="form-control">
                      <label for="restroom-edit-info" class="form-label">Cleanliness</label>
                      <input type="text" id="restroom-edit-cleanliness" class="form-input" data-role="none" placeholder="Very Good, Good, Bad, Very Bad">
-                  </div>
+                  </div> -->
                </div>
             </div>
             <div class="flex-none padding-md">
@@ -306,11 +364,13 @@
 			<ul>
 				<li><a href="#page-location-set-location" data-rel="back">Cancel</a></li>
 				<li class="flex-stretch"></li>
-				<li><a href="#page-list">Save</a></li>
+				<li><a href="#" class="js-navigate-back">Save</a></li>
 			</ul>
 		</header>	
 		<div data-role="main">
-			Restroom
+			<form action="">
+				<input type="hidden" id="location-navigateback" value="-3">
+			</form>
 		</div>	
 	</section>
 

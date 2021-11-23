@@ -13,8 +13,10 @@ $(()=>{
          case "page-home": HomePage(); break;
          case "page-list": ListPage(); break;
          case "page-user-profile": UserProfilePage(); break;
+         case "page-user-edit": UserEditPage(); break;
          case "page-restroom-profile": RestroomProfilePage(); break;
          case "page-restroom-edit": RestroomEditPage(); break;
+         case "page-restroom-add": RestroomAddPage(); break;
       }
    })
 
@@ -48,6 +50,14 @@ $(()=>{
          .siblings().removeClass("active");
       $(this).closest(".restroom-profile-middle").next().children().eq(id).addClass("active")
          .siblings().removeClass("active");
+   })
+
+   .on("click","[data-setnavigateback]",function(e){
+      $("#location-navigateback").val($(this).data("setnavigateback"))
+   })
+
+   .on("click",".js-navigate-back",function(e){
+      window.history.go(+$("#location-navigateback").val());
    })
 
 
