@@ -91,7 +91,7 @@ const RestroomProfilePage = async() => {
 
    let [restroom] = restroom_result;
    $(".restroom-profile-top img").attr("src",restroom.img);
-   $(".restroom-profile-bottom .description").html(restroom.description);
+   $(".restroom-profile-bottom .description").html(makeRestroomProfile(restroom));
 
    let locations_result = await resultQuery({
       type:'locations_by_restroom_id',
@@ -131,3 +131,30 @@ const RestroomAddPage = async() => {
       );
 }
 
+const LocationSetLocationPage = async() => {
+   let mapEl = await makeMap("#page-location-set-location .map");
+   makeMarkers(mapEl,[]);
+
+   mapEl.data("map").addListener("click",function(e){
+      $("#location-lat").val(e.latLng.lat())
+      $("#location-lng").val(e.latLng.lng())
+      makeMarkers(mapEl,[e.latLng]);
+
+   })
+}
+
+const LocationChooseRestroomPage = async() => {
+   let result = await resultQuery({
+      type:'restrooms_by_user_id',
+      params:[sessionStorage.userId]
+   });
+
+   console.log(result)
+
+   $(".location-restroom-choice-select").html(
+      makeRestroomChoiceSelect({
+         restrooms:result,
+         name:'location-restroom-choice-select'
+      })
+   );
+}

@@ -32,6 +32,21 @@ const makeUserProfile = (o) => `
 </div>
 `;
 
+const makeRestroomProfile = (o) => `
+<div class="padding-md">
+   <h4>${o.store}</h4>
+   <div class="form-control">
+	   <div style="margin-bottom: 5px;"><strong>Store:</strong> ${o.store}</div>
+	   <div style="margin-bottom: 5px;"><strong>Password:</strong> ${o.password}</div>
+	   <div style="margin-bottom: 5px;"><strong>Type:</strong> ${o.type}</div>
+	   <div style="margin-bottom: 5px;"><strong>Needs:</strong> ${o.needs}</div>
+	   <div style="margin-bottom: 5px;"><strong>Description:</strong> <p>${o.description}<p></div>
+	</div>
+</div>
+`;
+
+
+
 const makeRestroomPopup = o => `
 <div class="display-flex restroom-jump" data-id="${o.restroom_id}">
 	<div class="flex-none restroom-popup-image">
@@ -74,7 +89,7 @@ const makeRestroomFormInputs = (o,namespace) => `
 		namespace:namespace,
 		name:"password",
 		displayname:"Password",
-		type:"password",
+		type:"text",
 		placeholder:"Type The Restroom Password",
 		value:o.password
 	})}
@@ -110,17 +125,34 @@ const makeUserFormInputs = (o,namespace) => `
 		namespace:namespace,
 		name:"name",
 		displayname:"Name",
-		type:"name",
+		type:"text",
 		placeholder:"Type The Name",
 		value:o.name
 	})}
 	${FormControlInput({
 		namespace:namespace,
 		name:"username",
-		displayname:"username",
-		type:"username",
-		placeholder:"Type The Username",
+		displayname:"Username",
+		type:"text",
+		placeholder:"Type The User Handle",
 		value:o.username
 	})}
+	${FormControlInput({
+		namespace:namespace,
+		name:"email",
+		displayname:"Email",
+		type:"email",
+		placeholder:"Type The Email Address",
+		value:o.email
+	})}
+`;
 
+
+
+const makeRestroomChoiceSelect = ({restrooms,store,chosen=0}) => `
+<select id="${store}">
+   ${templater(o=>`
+      <option value="${o.id}" ${o.id===chosen?'selected':''}>${o.store}</option>
+   `)(restrooms)}
+</select>
 `;

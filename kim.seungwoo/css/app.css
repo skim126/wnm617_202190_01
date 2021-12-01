@@ -54,7 +54,7 @@ h3{
 h4{
 	font-size: 1.5em;
 	font-weight: 600;
-	margin: 0;
+	margin: 15px 0;
 }
 
 h5{
@@ -302,6 +302,30 @@ h3.signup-heading {
 	font-size: 1em;
 	color: var(--color-neutral-dark);
 	margin: 1rem 0 0;
+}
+
+.form-select select {
+    background-color: var(--color-neutral-light);
+    border-width: 0;
+    padding: 0.5em 1em;
+    font: inherit;
+    border-radius: 4px;
+    width: 100%;
+    -webkit-appearance: none;
+}
+
+.form-select {
+   position: relative;
+}
+
+.form-select::after {
+   content: '▼';
+   position: absolute;
+   right: 0.5em;
+   top: 50%;
+   transform: translateY(-50%);
+   font-size: 0.8em;
+   color: var(--color-neutral-medium);
 }
 
 .map{
@@ -592,6 +616,10 @@ h3.signup-heading {
 
 }
 
+#restroom-edit-form svg {
+	pointer-events: none;
+}
+
 .restroom-img {
 	height: 20vh;
 	width: 20vh;
@@ -629,6 +657,16 @@ h3.signup-heading {
    position: relative;
 }
 
+.restroom-profile-bottom .section {
+	display: none;
+}
+.restroom-profile-bottom .section.active{
+	display: block;
+}
+
+.restroom-profile-middle li.active {
+	background-color: var(--color-main-light);
+}
 
 
 .floating-header {

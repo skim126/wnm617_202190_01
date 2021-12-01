@@ -53,7 +53,7 @@
     },
   
     
-  password: 'md5(pass)',
+  password: '12345',
     
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss ")}}'
   }

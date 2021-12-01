@@ -44,35 +44,35 @@ const makeMarkers = (mapEl,mapLocs) => {
 }
 
 const setMapBounds = (mapEl,mapLocs) => {
-    let {map,markers} = mapEl.data();
-    let zoom = 14;
+   let {map,markers} = mapEl.data();
+   let zoom = 14;
 
-    if(mapLocs.length==0) {
-        if(window.location.protocol!=='http:') return;
-        else {
-            navigator.geolocation.getCurrentPosition(p=>{
-                let pos = {
-                    lat:p.coords.latitude,
-                    lng:p.coords.longitude
-                };
-                map.setCenter(pos);
-                map.setZoom(zoom);
-            },(...args)=>{
-                console.log(args)
-            },{
-                enableHighAccuracy:false,
-                timeout:5000,
-                maximumAge:0
-            });
-        }
-    } else if(mapLocs.length==1) {
-        map.setCenter(mapLocs[0]);
-        map.setZoom(zoom);
-    } else {
-        let bounds = new google.maps.LatLngBounds(null);
-    mapLocs.forEach(o=>{
-        bounds.extend(o);
-    });
-    map.fitBounds(bounds);
-    }
+   if(mapLocs.length==0) {
+      if(window.location.protocol!=='https:') return;
+      else {
+         navigator.geolocation.getCurrentPosition(p=>{
+            let pos = {
+               lat:p.coords.latitude,
+               lng:p.coords.longitude
+            };
+            map.setCenter(pos);
+            map.setZoom(zoom);
+         },(...args)=>{
+            console.log(args)
+         },{
+            enableHighAccuracy:false,
+            timeout:5000,
+            maximumAge:0
+         });
+      }
+   } else if(mapLocs.length==1) {
+      map.setCenter(mapLocs[0]);
+      map.setZoom(zoom);
+   } else {
+      let bounds = new google.maps.LatLngBounds(null);
+      mapLocs.forEach(o=>{
+         bounds.extend(o);
+      });
+      map.fitBounds(bounds);
+   }
 }

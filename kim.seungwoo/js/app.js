@@ -17,6 +17,8 @@ $(()=>{
          case "page-restroom-profile": RestroomProfilePage(); break;
          case "page-restroom-edit": RestroomEditPage(); break;
          case "page-restroom-add": RestroomAddPage(); break;
+         case "page-location-choose-restroom": LocationChooseRestroomPage(); break;
+         case "page-location-set-location": LocationSetLocationPage(); break;
       }
    })
 
@@ -28,6 +30,41 @@ $(()=>{
    })
    .on("submit","#list-add-form",function(e) {
       e.preventDefault();
+   })
+
+   .on("submit", "#restroom-add-form", function(e) {
+      e.preventDefault();
+      restroomAddForm();
+   })
+
+   .on("submit", "#restroom-edit-form", function(e) {
+      e.preventDefault();
+      restroomEditForm();
+   })
+
+
+   //Form Anchor Clicks
+   .on("click",".js-submituseredit",function(e) {
+      e.preventDefault();
+      userEditForm();
+   })
+
+   .on("click",".js-submituserpassword",function(e) {
+      e.preventDefault();
+      userEditPasswordForm();
+   })
+
+   .on("click",".js-submitlocationform",function(e){
+      e.preventDefault();
+      locationAddForm();
+   })
+
+
+   // on change
+
+   .on("change","#location-restroom-choice-select",function(e){
+      console.log(this.value)
+      $("#location-restroom-choice").val(this.value)
    })
 
    //Anchor Clicks
@@ -43,6 +80,9 @@ $(()=>{
       $.mobile.navigate("#page-restroom-profile");
    })
 
+   .on("click",".js-chooserestroom",function(e){
+      $("#location-restroom-choice").val(sessionStorage.restroomId);
+   })
 
    .on("click",".restroom-profile-middle li",function(e){
       let id = $(this).index();
