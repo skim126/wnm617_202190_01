@@ -11,14 +11,12 @@ const resultQuery = async (options) => {
 
 
 const ListPage = async() => {
-   let result = await resultQuery({
-      type:'restrooms_by_user_id',
-      params:[sessionStorage.userId]
-   });
+      let restrooms = await resultQuery({
+         type:'restrooms_by_user_id',
+         params:[sessionStorage.userId]
+      }); 
 
-	console.log(result);
-
-	$("#page-list .restroomlist").html(makeRestroomList(result));
+   makeRestroomListSet(restrooms);
 }
 
 const HomePage = async() => {
@@ -90,7 +88,7 @@ const RestroomProfilePage = async() => {
    });
 
    let [restroom] = restroom_result;
-   $(".restroom-profile-top img").attr("src",restroom.img);
+   $(".restroom-profile-top>img").attr("src",restroom.img);
    $(".restroom-profile-bottom .description").html(makeRestroomProfile(restroom));
 
    let locations_result = await resultQuery({
@@ -154,7 +152,8 @@ const LocationChooseRestroomPage = async() => {
    $(".location-restroom-choice-select").html(
       makeRestroomChoiceSelect({
          restrooms:result,
-         name:'location-restroom-choice-select'
+         store:'location-restroom-choice-select'
       })
    );
+   $("#location-restroom-choice").val(result[0].id);
 }

@@ -34,19 +34,38 @@ const restroomEditForm = async () => {
 	history.go(-1);
 }
 
-const userAddForm = async () => {
-	let name = $("#user-edit-name").val();
-	let username = $("#user-edit-username").val();
-	let email = $("#user-edit-email").val();
+const checkSignup = async () => {
+	let email = $("#signup-email").val();
+	let username = $("#signup-username").val();
+	let password = $("#signup-password").val();
+	let confirm = $("#signup-password2").val();
+
+	if(password!=confirm) throw("Passwords don't match");
 
 	let r = await query ({
 		type:'insert_user',
-		params:[name,username,email,sessionStorage.userId]
+		params:[username,email,password]
 	});
 
 	if(r.error) throw(r.error);
 
-	history.go(-1);
+	sessionStorage.userId = r.id;
+
+	$.mobile.navigate("#page-signup2");
+}
+
+const checkSignup2 = async () => {
+	let image = $("#signup-image-name").val();
+	let name = $("#signup-name").val();
+
+	let r = await query ({
+		type:'update_user_onboard',
+		params:[image,name,sessionStorage.userId]
+	});
+
+	if(r.error) throw(r.error);
+
+	$.mobile.navigate("#page-home");
 }
 
 const userEditForm = async () => {
@@ -94,4 +113,26 @@ const locationAddForm = async () => {
 	if(r.error) throw(r.error);
 
 	history.go($("#location-navigateback").val());
+}
+
+const checkSearchForm = async (s) => {
+	let restrooms = await query({
+		type:'search_restrooms',
+		params:[s,sessionStorage.userId]
+	});
+
+	if(restrooms.error) throw(restrooms.error);
+
+	makeRestroomListSet(restrooms.result);
+}
+
+const checkFilter = async (f,v) => {
+	let restrooms = await query({
+		type:'filter_restrooms',
+		params:[f,v,sessionStorage.userId]
+	});
+
+	if(restrooms.error) throw(restrooms.error);
+
+	makeRestroomListSet(restrooms.result);
 }

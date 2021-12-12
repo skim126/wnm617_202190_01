@@ -74,6 +74,11 @@
 					<input class="form-input" type="text" id="signup-email" data-role="none" placeholder="Email">
 				</div>
 				<div class="form-control">
+					<label for="signup-username" class="form-label"></label>
+					<h6>Username</h6>
+					<input class="form-input" type="text" id="signup-username" data-role="none" placeholder="Username">
+				</div>
+				<div class="form-control">
 					<label for="signup-password" class="form-label"></label>
 					<h6>New Password</h6>
 					<input class="form-input" type="password" id="signup-password" data-role="none" placeholder="Password">
@@ -84,11 +89,34 @@
 					<input class="form-input" type="password" id="signup-password2" data-role="none" placeholder="Confirm">
 				</div>				
 				<div class="form-control">
-					<!-- <a href="#page-home" class="form-button">Sign In</a> -->
 					<input type="submit" value="Sign Up" class="form-button" data-role="none">
 				</div>
 				<div class="form-control small centered">
 					Already have an account?<a href="#page-signin" class="">Sign In</a>
+				</div>
+			</form>
+			<div class="flex-stretch"></div>
+		</div>
+	</section>	
+
+	<section data-role="page" id="page-signup2">
+		<div data-role="main" class="display-flex flex-vertical">
+			<div class="flex-stretch"></div>
+			<form data-ajax="false" class="form signin-form" id="signup-form2" style="padding: 10px;">
+				<div class="form-control">
+					<input type="hidden" id="signup-image-name">
+					<label class="image-picker thumbnail">
+						<input type="file" data-role="none">
+					</label>
+				</div>
+				<div class="form-control">
+					<label for="signup-name" class="form-label"></label>
+					<h6>Name</h6>
+					<input class="form-input" type="text" id="signup-name" data-role="none" placeholder="First Name">
+				</div>
+						
+				<div class="form-control">
+					<input type="submit" value="Start" class="form-button" data-role="none">
 				</div>
 			</form>
 			<div class="flex-stretch"></div>
@@ -103,9 +131,9 @@
 
 			<div class="map"></div>
 				<div class="flex-stretch search-container">	
-					<form action="">
+					<!-- <form action="">
 						<input class="search-bar" type="text" name="search" placeholder="Search" data-role="none">
-					</form>
+					</form> -->
 				</div>
 
 				<div id="home-drawer" class="modal">
@@ -128,13 +156,23 @@
 		<div class="header">
 			<h4 class="page-title">List</h4>
 		</div>
-		<div data-role="main">
-			<div class="overscroll floater fill-parent">
-					<div class="restroomlist"></div>			
+		<div data-role="main" class="display-flex flex-vertical">
+
+			<div class="search-bar header flex-none">
+				<form data-ajax="false" id="list-search-form" class="hotdog medium">
+					<input type="search" data-role="none" placeholder="Search">
+				</form>
 			</div>
-				<div class="floater bottom right">
-						<a href="#page-restroom-add" class="btn-circle">&plus;</a>
-				</div>
+			<div class="filter-bar header flex-none"></div>
+			<div class="position-relative flex-stretch">
+				<div class="overscroll floater fill-parent">
+					<div class="restroomlist"></div>			
+				</div>				
+			</div>
+
+			<div class="floater bottom right">
+				<a href="#page-restroom-add" class="btn-circle">&plus;</a>
+			</div>
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
@@ -164,15 +202,10 @@
 
 		<div data-role="main"  class="overscroll display-flex flex-vertical">
 			<ul class="nav-page-links">
-				<li>
-					<a href="#page-user-edit">Update User Info</a>
-				</li>
-				<li>
-					<a href="#page-user-edit-password">Change Password</a>
-				</li>
-				<li>
-					<a href="#" class="js-logout">Logout</a>
-				</li>
+				<li><a href="#page-user-edit">Update User Info</a></li>
+				<li><a href="#page-user-edit-password">Change Password</a></li>
+				<li><a href="#page-user-upload">Change Photo</a></li>
+				<li><a href="#" class="js-logout">Logout</a></li>
 			</ul>
 		</div>	
 	</section>
@@ -230,7 +263,25 @@
          </form>
 			</div>
 		</div>	
-	</section>	
+	</section>
+
+	<section data-role="page" id="page-user-upload">
+		<header data-role="header">
+			<h1>Upload Photo</h1>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+				<li class="flex-stretch"></li>
+				<li><a href="#" class="js-submituserupload">Save</a></li>
+			</ul>
+		</header>	
+
+		<div data-role="main">
+				<input type="hidden" id="user-upload-filename">
+				<label class="image-picker replace">
+					<input type="file" data-role="none">
+				</label>
+		</div>	
+	</section>
 
 	<!-- Restroom Page -->
 
@@ -246,6 +297,11 @@
 		<div class="display-flex flex-vertical" data-role="main">
 			<div class="restroom-profile-top">
 				<img src="https://via.placeholder.com/350x350text=Restroom" alt="" style="width:100%;height:100%;object-fit:cover">
+				<div class="floater bottom right">
+					<a href="#page-restroom-edit-upload" style="font-size: 1.5em;">
+						<img src="img/icons/edit.png" class="icon">
+					</a>
+				</div>
 			</div>
 			<div class="restroom-profile-middle">
 				<ul class="nav">
@@ -264,20 +320,24 @@
 					<div class="description"></div>
 				</div>
 			</div>
-			<!-- <div class="form-control">
-				<lable for="restroom-add-name" class="form-label">Name</lable>
-				<input type="text" class="form-input" data-role="none" placeholder="Starbucks Sutter&Powell">
-			</div>
+		</div>	
+	</section>
 
-			<div class="form-control">
-				<lable for="restroom-add-password" class="form-label">Password</lable>
-				<input type="text" class="form-input" data-role="none" placeholder="12345">
-			</div>
+	<section data-role="page" id="page-restroom-edit-upload">
+		<header data-role="header">
+			<h1>Upload Photo</h1>
+			<ul>
+				<li><a href="#" data-rel="back">Back</a></li>
+				<li class="flex-stretch"></li>
+				<li><a href="#" class="js-submitrestroomupload">Save</a></li>
+			</ul>
+		</header>	
 
-			<div class="form-control">
-				<lable for="restroom-add-info" class="form-label">Detail Information</lable>
-				<input type="text" class="form-input" data-role="none" placeholder="No need to buy coffee">
-			</div>			 -->
+		<div data-role="main">
+				<input type="hidden" id="restroom-upload-filename">
+				<label class="image-picker replace">
+					<input type="file" data-role="none">
+				</label>
 		</div>	
 	</section>
 
@@ -292,29 +352,6 @@
          <form class="fill-parent display-flex flex-vertical" id="restroom-add-form" data-ajax="false">
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
-	               <!-- <div class="form-control">
-							<div for="add-restroom-image" class="restroom-img" style="display: block;" data-role="none"></div>
-						</div>
-                  <div class="form-control">
-                     <label for="restroom-add-name" class="form-label">Name</label>
-                     <input type="text" id="restroom-add-name" class="form-input" data-role="none" placeholder="Name">
-                  </div>
-                  <div class="form-control">
-                     <label for="restroom-add-password" class="form-label">Password</label>
-                     <input type="text" id="restroom-add-password" class="form-input" data-role="none" placeholder="Password">
-                  </div>
-                  <div class="form-control">
-                     <label for="restroom-add-info" class="form-label">Sex</label>
-                     <input type="text" id="restroom-add-sex" class="form-input" data-role="none" placeholder="Male or Female or Both">
-                  </div>
-                  <div class="form-control">
-                     <label for="restroom-add-info" class="form-label">Toilet</label>
-                     <input type="text" id="restroom-add-toilet" class="form-input" data-role="none" placeholder="Number of toilets">
-                  </div>
-                  <div class="form-control">
-                     <label for="restroom-add-info" class="form-label">Cleanliness</label>
-                     <input type="text" id="restroom-add-cleanliness" class="form-input" data-role="none" placeholder="Very Good, Good, Bad, Very Bad">
-                  </div> -->
                </div>
             </div>
             <div class="flex-none padding-md">
@@ -334,31 +371,11 @@
       </header>
       <div data-role="main">
          <form class="fill-parent display-flex flex-vertical" id="restroom-edit-form" data-ajax="false">
+         	<div style="padding: 0.5em 1em; text-align: right;">
+         		<a href="#" class="js-restroom-delete">Delete Restroom</a>
+         	</div>
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
-	               <!-- <div class="form-control">
-							<div for="edit-restroom-image" class="restroom-img" style="display: block;" data-role="none"></div>
-						</div>
-                  <div class="form-control">
-                     <label for="restroom-edit-name" class="form-label">Name</label>
-                     <input type="text" id="restroom-edit-name" class="form-input" data-role="none" placeholder="Name">
-                  </div>
-                  <div class="form-control">
-                     <label for="restroom-edit-password" class="form-label">Password</label>
-                     <input type="text" id="restroom-edit-password" class="form-input" data-role="none" placeholder="Password">
-                  </div>
-                  <div class="form-control">
-                     <label for="restroom-edit-info" class="form-label">Sex</label>
-                     <input type="text" id="restroom-edit-sex" class="form-input" data-role="none" placeholder="Male or Female or Both">
-                  </div>
-                  <div class="form-control">
-                     <label for="restroom-edit-info" class="form-label">Toilet</label>
-                     <input type="text" id="restroom-edit-toilet" class="form-input" data-role="none" placeholder="Number of toilets">
-                  </div>
-                  <div class="form-control">
-                     <label for="restroom-edit-info" class="form-label">Cleanliness</label>
-                     <input type="text" id="restroom-edit-cleanliness" class="form-input" data-role="none" placeholder="Very Good, Good, Bad, Very Bad">
-                  </div> -->
                </div>
             </div>
             <div class="flex-none padding-md">
@@ -367,7 +384,7 @@
             </div>
          </form>
       </div>
-   </section>	
+   </section>
 
 	<section data-role="page" id="page-location-choose-restroom">
 		<header data-role="header">

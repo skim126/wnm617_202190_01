@@ -203,6 +203,7 @@ h3.signup-heading {
 	overflow: hidden;
 }
 
+/*.header,*/
 [data-role="header"],
 [data-role="footer"] {
 	flex: none;
@@ -215,6 +216,7 @@ h3.signup-heading {
 	overflow: hidden;
 }
 
+.header ul,
 [data-role="header"] ul,
 [data-role="footer"] ul {
 	display: flex;
@@ -229,11 +231,13 @@ h3.signup-heading {
 	text-align: center;
 }
 
+.header a,
 [data-role="header"] a,
 [data-role="footer"] a {
 	display: block;
 }
 
+.header a,
 [data-role="header"] a {
 	padding: 0 1em;
 }
@@ -343,20 +347,58 @@ h3.signup-heading {
 }
 
 .search-bar{
-	position: absolute;
-	box-sizing: border-box;
-	border-radius: 10px;	
-	background-color: var(--color-white);
-	min-height: 2em;
-	text-align: left;
 	padding: 0.5em 1em;
-	font-size: 1rem;
-	border: 1px solid var(--color-main-dark);
-	box-shadow: 0 0 5px rgb(0 0 0 / 15%);
-	top: 10px;
-	left: 10px;
-	width: calc(100% - 20px);
+	box-shadow: none;
+	z-index: 2;
 }
+
+.filter-bar{
+	display: flex;
+	padding: 0.3em 1em;
+	width: 100%;
+	overflow-x: auto;
+	gap: 1em;
+}
+
+.filter-bar a {
+	padding: 0;
+}
+
+
+.hotdog{
+	border: 1px solid var(--color-main-dark);
+	padding: 0.5em 1em;
+	display: inline-flex;
+	width: 100%;
+	border-radius: 10px;
+	position: relative;
+}
+	.hotdog.white{
+		background-color: var(--color-white);
+	}
+
+	.hotdog.medium{
+		background-color: var(--color-white);
+	}
+
+	.hotdog input{
+		border-width: 0;
+		background-color: transparent;
+		border-radius: 0;
+		-webkit-appearance: none;
+		font: inherit;
+		color: inherit;
+		outline: 0;
+		flex: 1 1 auto;
+		padding: 0;
+		margin: 0;
+		line-height: 1;
+	}
+
+	.search-bar .hotdog{
+		height: 100%;
+	}
+
 
 /* Floater */
 
@@ -651,6 +693,7 @@ h3.signup-heading {
 .restroom-profile-top {
    flex: none;
    height: 40vh;
+   position: relative;
 }
 .restroom-profile-bottom {
    flex: 1 1 auto;
@@ -685,4 +728,43 @@ h3.signup-heading {
 
 .restroom-popup-image img {
 	max-width: 85px;
+}
+
+.user-profile-image img {
+	width: 100%;
+	height: 30vh;
+	object-fit: cover;
+}
+
+.image-picker.replace {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.image-picker.replace input {
+	display: none;
+}
+
+.thumbnail {
+   position:relative;
+   display:inline-block;
+   width:6em;
+   height:6em;
+   border-radius:0.6em;
+   border:0.25em solid white;
+   vertical-align:middle;
+   box-shadow:0 0.15em 0.35em 0.1em rgba(0,0,0,0.2);
+   margin:0.5em;
+  
+   background-position:center;
+   background-size:cover;
+}
+.thumbnail input {
+   display: none;
 }
