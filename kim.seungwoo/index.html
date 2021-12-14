@@ -201,11 +201,11 @@
 		</header>	
 
 		<div data-role="main"  class="overscroll display-flex flex-vertical">
-			<ul class="nav-page-links">
-				<li><a href="#page-user-edit">Update User Info</a></li>
-				<li><a href="#page-user-edit-password">Change Password</a></li>
-				<li><a href="#page-user-upload">Change Photo</a></li>
-				<li><a href="#" class="js-logout">Logout</a></li>
+			<ul class="nav-page-links form-input">
+				<li style="margin-bottom: 10px;"><a href="#page-user-edit">Update User Info<i class="arrow right"></i></a></li>
+				<li style="margin-bottom: 10px;"><a href="#page-user-edit-password">Change Password<i class="arrow right"></i></a></li>
+				<li style="margin-bottom: 10px;"><a href="#page-user-upload">Change Photo<i class="arrow right"></i></a></li>
+				<!-- <li style="margin-bottom: 10px;"><a href="#" class="js-logout">Logout</a></li> -->
 			</ul>
 		</div>	
 	</section>
@@ -278,6 +278,7 @@
 		<div data-role="main">
 				<input type="hidden" id="user-upload-filename">
 				<label class="image-picker replace">
+					<h6 class="padding-md upload-photo-box">Upload Photo</h6>
 					<input type="file" data-role="none">
 				</label>
 		</div>	
@@ -398,11 +399,11 @@
 		<div data-role="main" class="padding-md">
 			<input type="hidden" id="location-restroom-choice">
 			<div>
-				<a href="#page-restroom-add">Make a New Restroom</a>
-			</div>
-			<div>Or</div>
-			<div>
 				<div class="form-select location-restroom-choice-select"></div>
+			</div>
+		</br>
+			<div class="choose-restroom form-input">
+				<a href="#page-restroom-add">Create a New Restroom<i class="arrow right"></i></a>
 			</div>
 		</div>	
 	</section>

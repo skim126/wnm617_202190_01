@@ -19,13 +19,13 @@ const makeUserProfile = (o) => `
 <div class="user-profile-image">
    <img src="${o.img}" alt="">
 </div>
-<div>
+<div class="padding-md">
    <h4>${o.name}</h4>
    <h5>&commat;${o.username}</h5>
-   <div><a href="#page-user-settings">Settings</a></div>
+   <div><a href="#page-user-settings">Settings<i class="arrow right"></i></a></div>
 </div>
 
-<div data-role="main"  class="overscroll display-flex flex-vertical">
+<div data-role="main"  class="overscroll display-flex flex-vertical padding-md">
 	<button class="form-button js-logout">
 		Log Out
 	</button>
