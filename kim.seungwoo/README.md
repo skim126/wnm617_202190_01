@@ -1,9 +1,12 @@
 # Seungwoo Kim
 
+## Final Links
+
+- http://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo
+
 ## Important Links
 
 - http://seungwookim.com
-- http://seungwookim.com/aau/wnm617_202190_01/kim.seungwoo
 
 
 ## Demo Code
